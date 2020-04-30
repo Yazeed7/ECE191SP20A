@@ -36,13 +36,13 @@ class SVCNN(Model):
         if self.use_resnet:
             if self.cnn_name == 'resnet18':
                 self.net = models.resnet18(pretrained=self.pretraining)
-                self.net.fc = nn.Linear(512,40)
+                self.net.fc = nn.Linear(512,self.nclasses)
             elif self.cnn_name == 'resnet34':
                 self.net = models.resnet34(pretrained=self.pretraining)
-                self.net.fc = nn.Linear(512,40)
+                self.net.fc = nn.Linear(512,self.nclasses)
             elif self.cnn_name == 'resnet50':
                 self.net = models.resnet50(pretrained=self.pretraining)
-                self.net.fc = nn.Linear(2048,40)
+                self.net.fc = nn.Linear(2048,self.nclasses)
         else:
             if self.cnn_name == 'alexnet':
                 self.net_1 = models.alexnet(pretrained=self.pretraining).features
