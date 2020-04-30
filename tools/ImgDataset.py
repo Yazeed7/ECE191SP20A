@@ -94,7 +94,7 @@ class SingleImgDataset(torch.utils.data.Dataset):
         parent_dir = root_dir.rsplit('/',2)[0]
         self.filepaths = []
         for i in range(len(self.classnames)):
-            all_files = sorted(glob.glob(parent_dir+'/'+self.classnames[i]+'/'+set_+'/*shaded*.png'))
+            all_files = sorted(glob.glob(parent_dir+'/'+self.classnames[i]+'/'+set_+'/*.png'))
             if num_models == 0:
                 # Use the whole dataset
                 self.filepaths.extend(all_files)
