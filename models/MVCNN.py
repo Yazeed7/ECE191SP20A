@@ -54,7 +54,7 @@ class SVCNN(Model):
                 self.net_1 = models.vgg16(pretrained=self.pretraining).features
                 self.net_2 = models.vgg16(pretrained=self.pretraining).classifier
             
-            self.net_2._modules['6'] = nn.Linear(4096,40)
+            self.net_2._modules['6'] = nn.Linear(4096,self.nclasses)
 
     def forward(self, x):
         if self.use_resnet:
